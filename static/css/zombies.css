@@ -1,0 +1,19 @@
+
+h2  {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+}

@@ -17,7 +17,7 @@ def zombies():
 @zombies_blueprint.route("/zombies/<id>")
 def show(id):
     zombie = zombie_repository.select(id)
-    humans = human_repository.get_humans(id)
+    humans = human_repository.get_humans(zombie)
     
     return render_template("zombies/show.html", zombie=zombie, humans=humans)
 
