@@ -3,6 +3,7 @@ from flask import Blueprint, Flask, redirect, render_template, request
 from models.zombie import Zombie
 import repositories.zombie_repository as zombie_repository
 import repositories.zombie_type_repository as zombie_type_repository
+import repositories.human_repository as human_repository
 
 zombies_blueprint = Blueprint("zombies", __name__)
 
@@ -11,6 +12,14 @@ zombies_blueprint = Blueprint("zombies", __name__)
 def zombies():
     zombies = zombie_repository.select_all()
     return render_template("zombies/index.html", zombies=zombies)
+
+#  SHOW
+@zombies_blueprint.route("/zombies/<id>")
+def show(id):
+    zombie = zombie_repository.select(id)
+    humans = human_repository.get_humans(id)
+    
+    return render_template("zombies/show.html", zombie=zombie, humans=humans)
 
 
 # NEW
