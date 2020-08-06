@@ -53,7 +53,9 @@ biting_2.zombie = zombie_1
 biting_2.human = human_1
 biting_repository.update(biting_2)
 
-
+humans = human_repository.get_humans(zombie_2.id)
+for human in humans:
+    print(human.__dict__)
 # biting_2 = Biting(human_3, zombie_1)
 # biting_repository.save(biting_2)
 
