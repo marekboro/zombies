@@ -33,9 +33,9 @@ def select(id):
     biting = None
     sql = "SELECT * FROM bitings WHERE id = %s"
     values = [id]
-    result = run_sql(sql,values)[0]
+    row = run_sql(sql,values)[0]
 
-    if result is not None:
+    if row is not None:
         human = human_repository.select(row["human_id"])
         zombie = zombie_repository.select(row["zombie_id"])
         biting = Biting(human, zombie, row["id"])
